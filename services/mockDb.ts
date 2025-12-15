@@ -7,6 +7,24 @@ let books: Book[] = [
   { BookID: 'B003', Title: 'The Great Gatsby', Author: 'F. Scott Fitzgerald', Category: 'Literature', PublishYear: 1925, Status: BookStatus.Available, Description: 'A novel about the American dream.' },
   { BookID: 'B004', Title: 'Clean Code', Author: 'Robert C. Martin', Category: 'Computer Science', PublishYear: 2008, Status: BookStatus.Available, Description: 'A handbook of agile software craftsmanship.' },
   { BookID: 'B005', Title: 'Design Patterns', Author: 'Erich Gamma', Category: 'Computer Science', PublishYear: 1994, Status: BookStatus.Available, Description: 'Elements of reusable object-oriented software.' },
+  { 
+    BookID: 'B006', 
+    Title: 'Sapiens: A Brief History of Humankind', 
+    Author: 'Yuval Noah Harari', 
+    Category: 'History', 
+    PublishYear: 2011, 
+    Status: BookStatus.Available, 
+    Description: 'Explores how biology and history have defined us and enhanced our understanding of what it means to be "human".' 
+  },
+  { 
+    BookID: 'B007', 
+    Title: 'Guns, Germs, and Steel', 
+    Author: 'Jared Diamond', 
+    Category: 'History', 
+    PublishYear: 1997, 
+    Status: BookStatus.Borrowed, 
+    Description: 'A short history of everybody for the last 13,000 years.' 
+  }
 ];
 
 let users: User[] = [

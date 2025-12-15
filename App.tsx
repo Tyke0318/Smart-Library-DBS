@@ -79,7 +79,7 @@ const LoginScreen = ({ onLogin }: { onLogin: () => void }) => {
             Admin Login
           </button>
         </form>
-        <p className="mt-4 text-center text-xs text-slate-400">Project Demo: Use admin / 123456</p>
+        <p className="mt-4 text-center text-xs text-slate-400">Project Demo, Sichuan University Pittsburgh Institute</p>
       </div>
     </div>
   );
@@ -592,7 +592,7 @@ const App = () => {
           <Library className="text-blue-400" size={28} />
           <div>
             <h1 className="font-bold text-lg">SmartLib</h1>
-            <p className="text-xs text-slate-400">DBMS Project</p>
+            <p className="text-xs text-slate-400">Database Project</p>
           </div>
         </div>
 
