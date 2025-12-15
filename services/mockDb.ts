@@ -10,14 +10,14 @@ let books: Book[] = [
 ];
 
 let users: User[] = [
-  { UserID: 'U001', Name: 'Alice Johnson', Email: 'alice@example.com', Phone: '555-0101', RegisterDate: '2023-01-15' },
-  { UserID: 'U002', Name: 'Bob Smith', Email: 'bob@example.com', Phone: '555-0102', RegisterDate: '2023-02-20' },
-  { UserID: 'U003', Name: 'Charlie Brown', Email: 'charlie@example.com', Phone: '555-0103', RegisterDate: '2023-03-10' },
+  { UserID: 'U001', Name: 'Alice Johnson', Email: 'alice@example.com', Phone: '555-0101', RegisterDate: '2025-01-15' },
+  { UserID: 'U002', Name: 'Bob Smith', Email: 'bob@example.com', Phone: '555-0102', RegisterDate: '2025-02-20' },
+  { UserID: 'U003', Name: 'Charlie Brown', Email: 'charlie@example.com', Phone: '555-0103', RegisterDate: '2025-03-10' },
 ];
 
 let borrowRecords: BorrowRecord[] = [
-  { RecordID: 'R001', UserID: 'U002', BookID: 'B002', BorrowDate: '2023-10-01', DueDate: '2023-10-15', ReturnDate: null }, // Active borrow
-  { RecordID: 'R002', UserID: 'U001', BookID: 'B001', BorrowDate: '2023-09-01', DueDate: '2023-09-15', ReturnDate: '2023-09-10' }, // Returned
+  { RecordID: 'R001', UserID: 'U002', BookID: 'B002', BorrowDate: '2025-10-01', DueDate: '2025-10-15', ReturnDate: null }, // Active borrow
+  { RecordID: 'R002', UserID: 'U001', BookID: 'B001', BorrowDate: '2025-09-01', DueDate: '2025-09-15', ReturnDate: '2025-09-10' }, // Returned
 ];
 
 // Simulating SQL Operations
