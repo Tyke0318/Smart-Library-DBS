@@ -1,0 +1,5 @@
+{
+  "name": "SmartLib DBMS",
+  "description": "An interactive Smart Library Management System for Database Systems course project, featuring inventory management, circulation control, and AI-assisted search.",
+  "requestFramePermissions": []
+}
