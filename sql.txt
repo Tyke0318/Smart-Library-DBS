@@ -1,0 +1,59 @@
+-- 1. 创建数据库
+CREATE DATABASE IF NOT EXISTS smart_library;
+USE smart_library;
+
+-- 2. 创建用户表 (为了借阅功能，必须有用户)
+CREATE TABLE IF NOT EXISTS Users (
+    UserID VARCHAR(50) PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Email VARCHAR(100),
+    Phone VARCHAR(20),
+    RegisterDate DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 3. 创建书籍表 (对应 types.ts 中的 Book)
+CREATE TABLE IF NOT EXISTS Books (
+    BookID VARCHAR(50) PRIMARY KEY, -- 使用字符串ID，方便前端生成或UUID
+    Title VARCHAR(255) NOT NULL,
+    Author VARCHAR(255) NOT NULL,
+    Category VARCHAR(100),
+    PublishYear INT,
+    Status ENUM('Available', 'Borrowed', 'Lost') DEFAULT 'Available',
+    Description TEXT
+);
+
+-- 4. 创建借阅记录表 (对应 types.ts 中的 BorrowRecord)
+CREATE TABLE IF NOT EXISTS BorrowRecords (
+    RecordID INT AUTO_INCREMENT PRIMARY KEY, -- 记录ID用自增比较方便
+    UserID VARCHAR(50) NOT NULL,
+    BookID VARCHAR(50) NOT NULL,
+    BorrowDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    DueDate DATETIME,
+    ReturnDate DATETIME NULL, -- NULL 表示还没还
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (BookID) REFERENCES Books(BookID)
+);
+
+
+-- 1. 先插入用户 (Users)
+-- 必须先插用户，因为借阅记录依赖于用户ID
+INSERT INTO Users (UserID, Name, Email, Phone, RegisterDate) VALUES
+('U001', 'Alice Johnson', 'alice@example.com', '555-0101', '2025-01-15'),
+('U002', 'Bob Smith', 'bob@example.com', '555-0102', '2025-02-20'),
+('U003', 'Charlie Brown', 'charlie@example.com', '555-0103', '2025-03-10');
+
+-- 2. 再插入书籍 (Books)
+INSERT INTO Books (BookID, Title, Author, Category, PublishYear, Status, Description) VALUES
+('B001', 'Database System Concepts', 'Abraham Silberschatz', 'Computer Science', 2019, 'Available', 'The fundamental text for database systems.'),
+('B002', 'Introduction to Algorithms', 'Thomas H. Cormen', 'Computer Science', 2009, 'Borrowed', 'Comprehensive guide to algorithms.'),
+('B003', 'The Great Gatsby', 'F. Scott Fitzgerald', 'Literature', 1925, 'Available', 'A novel about the American dream.'),
+('B004', 'Clean Code', 'Robert C. Martin', 'Computer Science', 2008, 'Available', 'A handbook of agile software craftsmanship.'),
+('B005', 'Design Patterns', 'Erich Gamma', 'Computer Science', 1994, 'Available', 'Elements of reusable object-oriented software.'),
+('B006', 'Sapiens: A Brief History of Humankind', 'Yuval Noah Harari', 'History', 2011, 'Available', 'Explores how biology and history have defined us and enhanced our understanding of what it means to be "human".'),
+('B007', 'Guns, Germs, and Steel', 'Jared Diamond', 'History', 1997, 'Borrowed', 'A short history of everybody for the last 13,000 years.');
+
+-- 3. 最后插入借阅记录 (BorrowRecords)
+-- 注意：这里我省略了 RecordID，因为建表时它是 AUTO_INCREMENT 自增的
+INSERT INTO BorrowRecords (UserID, BookID, BorrowDate, DueDate, ReturnDate) VALUES
+('U002', 'B002', '2025-10-01', '2025-10-15', NULL),        -- 对应 mockDb 的 R001 (Active)
+('U001', 'B001', '2025-09-01', '2025-09-15', '2025-09-10'); -- 对应 mockDb 的 R002 (Returned)
