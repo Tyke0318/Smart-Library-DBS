@@ -26,6 +26,7 @@ npm install express mysql2 cors dotenv body-parser
 ```
 
 **Step 5:** 修改.env文件里的MySQL数据库密码为自己的
+
 **Step 6:** To run locally
 
 Open two terminals:
@@ -39,5 +40,7 @@ P.S.: If you want to use the AI Library Assistant service, set the `GEMINI_API_K
 
 
 *Dec. 23rd, 2025*
+
 *SCU, DMCA Course Project*
+
 *By Tyke Tan & Ji Zhou*
